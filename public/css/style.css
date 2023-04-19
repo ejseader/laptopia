@@ -98,6 +98,7 @@ header nav a:hover {
 header .tag-line {
   font-size: 0.7rem;
   font-style: italic;
+  line-height: 0.5rem;
 }
 
 header svg {
@@ -111,10 +112,39 @@ header svg {
   align-items: end;
   justify-content:end;
   padding: 10px;
+  margin-right: 2%;
 }
 
 .filters select {
   margin: 0px 2px;
+}
+
+.listings {
+  margin: 2% 7%;
+}
+
+/* LOGIN */
+
+.login-box {
+  width: 40%;
+  margin: 2% auto;
+  padding: 2%;
+  align-items: center;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+}
+
+.login-box h2 {
+  text-align: center;
+}
+
+/* REGISTER */
+
+#passwordHelpBlock {
+  color: #ffffff!important;
+  font-size: 0.7rem!important;
+  margin-bottom: 10px;
 }
 
 /* FOOTER */
