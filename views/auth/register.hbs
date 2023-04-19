@@ -1,7 +1,8 @@
 <div class="container-fluid">
-  <div class="login-box">
+  <div class="form-box">
     <h2>REGISTER</h2>
-    <form action="">
+
+    <form action="/auth/register" method="POST">
       <div class="mb-3">
         <label for="form-control" class="form-label">Name</label>
         <input
@@ -12,39 +13,32 @@
         />
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <label for="email" class="form-label">Email address</label>
         <input
+          name="email"
           type="email"
           class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="Enter You Email Address"
+          id="email"
+          placeholder="Enter Your Email..."
         />
       </div>
       <div class="mb-3">
-        <label for="inputPassword5" class="form-label">Password</label>
+        <label for="password" class="form-label">Password</label>
         <input
+          name="password"
           type="password"
-          id="inputPassword5"
           class="form-control"
-          placeholder="Enter Your Password"
+          id="password"
           aria-labelledby="passwordHelpBlock"
+          placeholder="Enter a Password..."
         />
         <div id="passwordHelpBlock" class="form-text">
-          Your password must be 8-20 characters long and must not contain spaces
-          or emoji.
-        </div>
-        <div class="mb-3">
-          <label for="inputPassword5" class="form-label">Confirm Password</label>
-          <input
-            type="password"
-            id="inputPassword5"
-            class="form-control"
-            placeholder="Confirm Password"
-          />
+          Your password must be 8-20 characters long, contain letters, numbers,
+          and special characters, and must not contain spaces or emoji.
         </div>
       </div>
-      <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button">Go</button>
+      <div class="d-grid">
+        <button class="btn btn-success">Submit</button>
       </div>
     </form>
   </div>

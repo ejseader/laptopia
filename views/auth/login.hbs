@@ -1,27 +1,29 @@
 <div class="container-fluid">
-  <div class="login-box">
+  <div class="form-box">
     <h2>LOGIN</h2>
-    <form action="">
+    <form action="/auth/login" method="POST">
       <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <label class="form-label">Email address</label>
         <input
+          name="email"
           type="email"
           class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="Enter You Email Address"
+          id="email"
+          placeholder="Enter Email..."
         />
       </div>
       <div class="mb-3">
-        <label for="inputPassword5" class="form-label">Password</label>
+        <label class="form-label">Password</label>
         <input
+          name="password"
           type="password"
-          id="inputPassword5"
           class="form-control"
-          placeholder="Enter Your Password"
+          id="password"
+          placeholder="Enter Password..."
         />
       </div>
-      <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button">Go</button>
+      <div class="d-grid">
+        <button class="btn btn-success">Submit</button>
       </div>
     </form>
   </div>
