@@ -1,6 +1,38 @@
 <div class="container-fluid">
   <div class="listings">
     <div class="filters">
+      <div class="filters">
+        <select class="form-select" aria-label="Brand Filter">
+          <option selected>Brand</option>
+          <option value="1">Acer</option>
+          <option value="2">Alienware</option>
+          <option value="3">Apple</option>
+          <option value="4">ASUS</option>
+          <option value="5">Dell</option>
+          <option value="6">HP</option>
+          <option value="7">Lenovo</option>
+          <option value="8">Microsoft</option>
+          <option value="9">MSI</option>
+          <option value="10">Samsung</option>
+        </select>
+        <select class="form-select" aria-label="Price Filter">
+          <option selected>Price</option>
+          <option value="1">$0-$499</option>
+          <option value="2">$500-$699</option>
+          <option value="3">$700-$999</option>
+          <option value="4">$1000-$1499</option>
+          <option value="5">$1500+</option>
+        </select>
+        <select class="form-select" aria-label="Condition Filter">
+          <option selected>Condition</option>
+          <option value="1">New in Box</option>
+          <option value="2">Excellent</option>
+          <option value="3">Very Good</option>
+          <option value="4">Good</option>
+          <option value="5">Fair</option>
+          <option value="6">Poor</option>
+          <option value="7">Parts Only</option>
+        </select>
     </div>
       <div class="row">
         {{#each data}}
