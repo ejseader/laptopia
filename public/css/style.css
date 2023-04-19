@@ -135,6 +135,34 @@ header svg {
   padding: 10% 0;
 }
 
+.btn-lg {
+  padding: 3%!important;
+  background-color: black!important;
+}
+
+.btn-lg:hover {
+  background-color: #333!important;
+}
+
+.listing-modal {
+  background-color: black;
+  color: white;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-modal-left {
+  flex: 1;
+  width: 100%;
+}
+
+.listing-modal-right {
+  flex: 4;
+  width: 100%;
+  border-left: 2px solid white;
+}
+
 /* LOGIN */
 
 .login-box {

@@ -44,13 +44,47 @@
                 Model: {{model}}<br />
                 OS: {{oper_sys}}<br />
                 Condition: {{condition}}<br />
-                Price: {{price}}<br />
+                Price: ${{price}}<br />
                 Description: {{description}}</p>
               <div class="d-grid">  
-              <a href="#" class="btn btn-primary">View Listing</a>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingModal">View Listing</a>
               </div>
             </div>
         {{/each}}
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade modal-xl" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="listingModalLabel">{{heading}} - ${{price}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-4 d-grid gap-2">
+                  <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}>
+                  <button class="btn btn-success" href="#">Buy Now</button>
+                  <button class="btn btn-primary" href="#">Contact Seller</button>
+                </div>
+                <div class="col-8">
+                  Brand: {{brand}}<br />
+                  Model: {{model}}<br />
+                  OS: {{oper_sys}}<br />
+                  Condition: {{condition}}<br />
+                  Price: ${{price}}<br />
+                  Description: {{description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
