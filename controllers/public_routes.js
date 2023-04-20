@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Laptop} = require('../models/index')
+const { Laptop } = require('../models/index')
 
 router.get('/', (req, res) => {
   // get all the laptop data

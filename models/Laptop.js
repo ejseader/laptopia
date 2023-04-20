@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const db = require('../config/connection')
+const db = require('../db/connection')
 
 class Laptop extends Model { }
 
