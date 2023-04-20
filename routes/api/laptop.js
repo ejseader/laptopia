@@ -7,8 +7,8 @@ const {Laptop} = require('../../models');
 router.get('/', (req, res) => {
   // find all laptops
   // be sure to include its associated Products
-  laptop.findAll({
-    include: [laptop]
+  Laptop.findAll({
+    include: [Laptop]
   })
   .then(cat => res.json(cat))
   .catch(err => res.status(500).json(err))
@@ -17,11 +17,11 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
-  laptop.findOne({
+  Laptop.findOne({
     where: {
       id: req.params.id
     },
-    include: [laptop]
+    include: [Laptop]
   })
   .then(cat => res.json(cat))
   .catch(err => res.status(500).json(err))
@@ -29,14 +29,14 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new laptop
-  laptop.create(req.body)
+  Laptop.create(req.body)
   .then(cat => res.json(cat))
   .catch(err => res.status(500).json(err))
 });
 
 router.put('/:id', (req, res) => {
   // update a laptop by its `id` value
-  laptop.update(req.body, {
+  Laptop.update(req.body, {
     where: {
       id: req.params.id
     },

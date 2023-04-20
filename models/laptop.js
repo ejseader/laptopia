@@ -33,9 +33,3 @@ Laptop.init({
 });
 
 module.exports = Laptop;
-
-
-
-
-
-   
