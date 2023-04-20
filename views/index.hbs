@@ -1,16 +1,91 @@
-{{#each data}}
-<div class="card" style="width: 18rem;">
-    <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}>
-    <div class="card-body">
-        <h5 class="card-title">{{heading}}</h5>
-        <p class="card-text">
-            Price: ${{price}}<br />
-            Brand: {{brand}}<br />
-            Model: {{model}}<br />
-            OS: {{oper_sys}}<br />
-            Condition: {{condition}}<br />
-            Description: {{description}}</p>
-        <a href="#" class="btn btn-primary">View Listing</a>
+<div class="container-fluid">
+  <div class="listings">
+    <div class="filters">
+      <div class="filters">
+        <select class="form-select" aria-label="Brand Filter">
+          <option selected>Brand</option>
+          <option value="1">Acer</option>
+          <option value="2">Alienware</option>
+          <option value="3">Apple</option>
+          <option value="4">ASUS</option>
+          <option value="5">Dell</option>
+          <option value="6">HP</option>
+          <option value="7">Lenovo</option>
+          <option value="8">Microsoft</option>
+          <option value="9">MSI</option>
+          <option value="10">Samsung</option>
+        </select>
+        <select class="form-select" aria-label="Price Filter">
+          <option selected>Price</option>
+          <option value="1">$0-$499</option>
+          <option value="2">$500-$699</option>
+          <option value="3">$700-$999</option>
+          <option value="4">$1000-$1499</option>
+          <option value="5">$1500+</option>
+        </select>
+        <select class="form-select" aria-label="Condition Filter">
+          <option selected>Condition</option>
+          <option value="1">New in Box</option>
+          <option value="2">Excellent</option>
+          <option value="3">Very Good</option>
+          <option value="4">Good</option>
+          <option value="5">Fair</option>
+          <option value="6">Poor</option>
+          <option value="7">Parts Only</option>
+        </select>
     </div>
+      <div class="row">
+        {{#each data}}
+          <div class="card" style="width: 18rem;">
+            <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}>
+            <div class="card-body">
+              <h5 class="card-title">{{heading}} - {{price}}</h5>
+              <p class="card-text">Brand: {{brand}}<br />
+                Model: {{model}}<br />
+                OS: {{oper_sys}}<br />
+                Condition: {{condition}}<br />
+                Price: ${{price}}<br />
+                Description: {{description}}</p>
+              <div class="d-grid">  
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingModal">View Listing</a>
+              </div>
+            </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade modal-xl" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="listingModalLabel">{{heading}} - ${{price}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-4 d-grid gap-2">
+                  <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}>
+                  <button class="btn btn-success" href="#">Buy Now</button>
+                  <button class="btn btn-primary" href="#">Contact Seller</button>
+                </div>
+                <div class="col-8">
+                  Brand: {{brand}}<br />
+                  Model: {{model}}<br />
+                  OS: {{oper_sys}}<br />
+                  Condition: {{condition}}<br />
+                  Price: ${{price}}<br />
+                  Description: {{description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-{{/each}}

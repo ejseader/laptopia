@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="form-box">
+    <h2>REGISTER</h2>
+
+    <form action="/auth/register" method="POST">
+    {{#each auth_errors}}
+      <p class="auth-error">{{this}}</p>
+    {{/each}}
+      <div class="mb-3">
+        <label for="form-control" class="form-label">Name</label>
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Enter Preferred Username"
+          aria-label="default input example"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          name="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter Your Email..."
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          name="password"
+          type="password"
+          class="form-control"
+          id="password"
+          aria-labelledby="passwordHelpBlock"
+          placeholder="Enter a Password..."
+        />
+        <div id="passwordHelpBlock" class="form-text">
+          Your password must be 8-20 characters long, contain letters, numbers,
+          and special characters, and must not contain spaces or emoji.
+        </div>
+      </div>
+      <div class="d-grid">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

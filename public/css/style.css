@@ -1,0 +1,213 @@
+/* RESETS */
+* {
+  Font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+p {
+  font-size: 1em;
+}
+
+/* GLOBAL CLASSES */
+
+.text-content {
+  text-align: center;
+}
+
+hr {
+  margin: 1.5em 0;
+  text-align: center;
+  border: none;
+}
+
+hr:before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #777;
+  margin: 0 0.4em;
+}
+
+hr:after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #777;
+  margin: 0 0.4em;
+}
+
+.auth-error {
+  color: red;
+}
+
+
+/* CUSTOM STYLES */
+
+/* HEADER */
+
+header {
+  background-color: black;
+  color: white;
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  position: relative;
+  font-size: 1rem;
+}
+
+header nav a:not(last-child) {
+  margin-right: 10px;
+}
+
+header .eric a {
+  color: var(--site-orange);
+  font-family: 'Roboto Slab', 'Times New Roman', serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+header nav a:hover {
+  color: orange;
+}
+
+header .tag-line {
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 0.5rem;
+}
+
+header svg {
+  margin-top: -6px;
+}
+
+.dropdown-item:hover {
+  background-color: #999;
+}
+
+/* MAIN */
+
+.filters {
+  display: flex;
+  align-items: end;
+  justify-content:end;
+  padding: 10px;
+  margin: 1% 2% 1% 50%;
+}
+
+.filters select {
+  margin: 0px 2px;
+}
+
+.listings {
+  margin: 2% 7%;
+}
+
+.dashboard-buttons {
+  width: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  padding: 10% 0;
+}
+
+.btn-lg {
+  padding: 3%!important;
+  background-color: black!important;
+}
+
+.btn-lg:hover {
+  background-color: #333!important;
+}
+
+.listing-modal {
+  background-color: black;
+  color: white;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-modal-left {
+  flex: 1;
+  width: 100%;
+}
+
+.listing-modal-right {
+  flex: 4;
+  width: 100%;
+  border-left: 2px solid white;
+}
+
+/* LOGIN */
+
+.form-box {
+  width: 40%;
+  margin: 2% auto;
+  padding: 2%;
+  align-items: center;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+}
+
+.form-box h2 {
+  text-align: center;
+}
+
+/* REGISTER */
+
+#passwordHelpBlock {
+  color: #ffffff!important;
+  font-size: 0.7rem!important;
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
+
+footer {
+  background: black;
+  color: white;
+  padding: 10px 5%;
+}
+
+@media (max-width: 600px) {
+  .filters {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 10px;
+    margin: 1%;
+  }
+  .listings {
+    margin: 0 20%;
+  }
+}
