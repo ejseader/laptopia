@@ -1,7 +1,7 @@
 {
   "name": "tech-blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "As a retailer, I want to build a marketplace app that sells laptos.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "bootstrap-icons": "^1.10.4",
     "connect-session-sequelize": "^7.1.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",

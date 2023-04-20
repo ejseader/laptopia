@@ -10,19 +10,41 @@ router.post('/auth/login', async (req, res) => {
     }
   });
 
-  if (!user) return res.redirect('/register');
+  if (!user) {
+    req.session.auth_errors = ['No account found with that email address. Please register.']
+    return res.redirect('/register');
+  }
 
   const valid_pass = await user.validatePass(user_data.password);
 
-  if (!valid_pass) return res.redirect('/login');
+  if (!valid_pass) {
+    req.session.auth_errors = ['Your password is incorrect']
+    return res.redirect('/login');
+  }
 
   req.session.user_id = user.id;
 
   res.redirect('/dashboard');
 });
 
-router.post('/auth/register')
+router.post('/auth/register', async (req, res) => {
+  const user_data = req.body;
+  req.session.auth_errors = ['Invalid registration'];
 
+  delete req.session.auth_errors;
+
+  try {
+    const user = await User.create(user_data);
+
+    req.session.user_id = user.id;
+    delete req.session.auth_errors;
+    res.redirect('/dashboard');
+  } catch (err) {
+    const errors = err.errors.map(errObj => errObj.message);
+    req.session.auth_errors = errors;
+    res.redirect('/register');
+  }
+});
 
 
 // Logout
