@@ -1,6 +1,6 @@
 const router = require('express').Router();
 // need to import the laptop file from models here. 
-const {laptop} = require('../..models');
+const {Laptop} = require('../../models');
 
 // The `/api/laptop` endpoint
 // get all the laptops that are seeded into database. 
