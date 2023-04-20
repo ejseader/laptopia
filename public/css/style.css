@@ -61,6 +61,10 @@ hr:after {
   margin: 0 0.4em;
 }
 
+.auth-error {
+  color: red;
+}
+
 
 /* CUSTOM STYLES */
 
@@ -165,7 +169,7 @@ header svg {
 
 /* LOGIN */
 
-.login-box {
+.form-box {
   width: 40%;
   margin: 2% auto;
   padding: 2%;
@@ -175,7 +179,7 @@ header svg {
   color: white;
 }
 
-.login-box h2 {
+.form-box h2 {
   text-align: center;
 }
 

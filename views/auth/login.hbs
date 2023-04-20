@@ -2,6 +2,9 @@
   <div class="form-box">
     <h2>LOGIN</h2>
     <form action="/auth/login" method="POST">
+    {{#each auth_errors}}
+      <p class="auth-error">{{this}}</p>
+    {{/each}}
       <div class="mb-3">
         <label class="form-label">Email address</label>
         <input

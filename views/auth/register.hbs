@@ -3,6 +3,9 @@
     <h2>REGISTER</h2>
 
     <form action="/auth/register" method="POST">
+    {{#each auth_errors}}
+      <p class="auth-error">{{this}}</p>
+    {{/each}}
       <div class="mb-3">
         <label for="form-control" class="form-label">Name</label>
         <input
