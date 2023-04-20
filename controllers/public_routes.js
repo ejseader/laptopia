@@ -1,13 +1,10 @@
 const router = require('express').Router();
+const Laptop = require('../models/index')
 
-function isLoggedIn(req, res, next) {
-  if(req.session.user_id) return res.redirect('/dashboard');
-
-  next();
-}
-
-router.get('/', isLoggedIn, (req, res) => {
-  res.render('index');
+router.get('/', (req, res) => {
+  // get all the laptop data
+  const allLaptop = Laptop.findAll()
+  res.render('index', {data: allLaptop});
 });
 
 router.get('/login', isLoggedIn, (req, res) => {

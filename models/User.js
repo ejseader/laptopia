@@ -1,56 +1,45 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const db = require('../db/connection');
+const { Model, DataTypes } = require('sequelize')
+const db = require('../config/connection')
+const bcrypt = require('bcrypt')
+
+const Laptop = require('./Laptop')
 
 class User extends Model {
-  async validatePass(provided_password) {
-    const is_valid = await bcrypt.compare(provided_password, this.password);
-
-    return is_valid;
-  }
+    static validatePass(user_entered_pass, hashed_password) {
+        return bcrypt.compareSync(user_entered_pass, hashed_password)
+    }
 }
 
 User.init({
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  email: {
-    type: DataTypes.STRING,
-    unique: {
-      args: true,
-      msg: 'That email is already in use.'
+    email: {
+        type: DataTypes.STRING,
+        validate: {
+            isEmail: {
+                args: true,
+                msg: 'You must enter a valid email address.'
+            }
+        },
+        allowNull: false
     },
-    validate: {
-      isEmail: {
-        args: true,
-        msg: 'Please enter a valid email address.'
+    password: {
+        type: DataTypes.STRING,
+        validate: {
+            len: {
+                args: 8,
+                msg: 'Your password must include at least 8 characters'
+            }
+        },
+        allowNull: false
     }
-  },
-    allowNull: false
-  },
-  password: {
-    type: DataTypes.STRING,
-    validate: {
-      len: {
-        args: 8,
-        msg: 'Passwords must be a minimum of 8 characters.'
-      }
-    },
-    allowNull: false
-  }
-},
-  {
+}, {
     sequelize: db,
     modelName: 'user',
-    freezeTableName: true,
     hooks: {
-      async beforeCreate(user) {
-        const encrypted_pass = await bcrypt.hash(user.password, 10);
-
-        user.password = encrypted_pass;
+        async beforeCreate(user) {
+            const encrypted = await bcrypt.hash(user.password, 10);
+            user.password = encrypted;
+        }
     }
-  }
 });
 
-module.exports = User;
+module.exports = User
