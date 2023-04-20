@@ -2,6 +2,30 @@ Body {
     background-color: white;
 }
 
+#container-1 {
+    display: flex;
+}
+
+#container-1 > div {
+    width: 40%;
+}
+
+#container-1 input {
+    width: 50%;
+    height: 40px;
+    margin-left: 20px;
+}
+
+div.center input {
+    border-width: 0;
+}
+
+#left-box {
+    margin-right: 5%;
+}
+#right-box {
+    margin-left: 5%;
+}
 
 .center {
     width: 40%;
@@ -20,59 +44,61 @@ Body {
 
 
 .left-box-1{
-    width: 75%;
-    height: 40px;
-    font-size: 1.2em;
+    /* width: 75%;
+    height: 40px; */
+    /* font-size: 1.2em; */
     cursor: pointer;
     background: white;
     outline: none;
-    color: black;
-    margin: 0.2em 0;
-    padding: 0 1em;
+    color: gray;
+    /* margin: 0.2em 0;
+    padding: 0 1em; */
     border-radius: 10px;
     border: none;
+    margin-bottom: 15px;
 
 }
 .left-box-2{
 
-    width: 75%;
-    height: 40px;
-    font-size: 1.2em;
+    /* width: 75%;
+    height: 40px; */
+    /* font-size: 1.2em; */
     cursor: pointer;
     background: white;
     outline: none;
-    color: black;
-    margin: 0.2em 0;
-    padding: 0 1em;
+    color: gray;
+    /* margin: 0.2em 0;
+    padding: 0 1em; */
     border-radius: 10px;
     border: none;
 }
 
 .right-box-1 {
-    width: 75%;
-    height: 40px;
-    font-size: 1.2em;
+    /* width: 75%;
+    height: 40px; */
+    /* font-size: 1.2em; */
     cursor: pointer;
     background: white;
     outline: none;
-    color: black;
-    margin: 0.2em 0;
-    padding: 0 1em;
+    color: gray;
+    /* margin: 0.2em 0;
+    padding: 0 1em; */
     border-radius: 10px;
     border: none;
+    margin-bottom: 15px;
 }
 
 .right-box-2 {
 
-    width: 75%;
-    height: 40px;
-    font-size: 1.2em;
+    /* width: 75%;
+    height: 40px; */
+    /* font-size: 1.2em; */
     cursor: pointer;
     background: white;
     outline: none;
-    color: black;
-    margin: 0.2em 0;
-    padding: 0 1em;
+    color: gray;
+    /* margin: 0.2em 0;
+    padding: 0 1em; */
     border-radius: 10px;
     border: none;
 
@@ -81,31 +107,37 @@ Body {
     width: 75%;
     height: 40px;
     font-size: 1.2em;
+    display: flex;
+    text-align: center;
     cursor: pointer;
     background: white;
     outline: none;
-    color: black;
-    margin: 0.2em 0;
-    padding: 0 1em;
+    color:gray;
+    margin: 1em 0;
+    padding: 0 2em;
     border-radius: 10px;
     border: none;
+    justify-content: center;
 }
 
 .txt-field-2{
     width: 75%;
-    height: 40px;
+    height: 85px;
     font-size: 1.2em;
+    display: flex;
     cursor: pointer;
     background: white;
     outline: none;
-    color: black;
-    margin: 0.2em 0;
+    color: gray;
+    margin: 1em 0;
     padding: 0 1em;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
+    text-align: center;
+    justify-content: center;
+
+   
 }
-
-
 
  .btn{
         width: 96%;
