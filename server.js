@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const PORT = process.env.PORT || 3000;
 const session = require('express-session');
+const routes = require('./routes');
 const public_routes = require('./controllers/public_routes');
 const auth_routes = require('./controllers/auth_routes')
 const private_routes = require('./controllers/private_routes');
@@ -30,7 +31,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use('/', [public_routes, auth_routes, private_routes]);
+app.use([public_routes,auth_routes,private_routes]);
 
 db.sync({ force: false }).then(() => {
 
