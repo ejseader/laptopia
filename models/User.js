@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize')
 const db = require('../config/connection')
 const bcrypt = require('bcrypt')
 
-const Laptop = require('./Laptop')
+const { Laptop } = require('./Laptop')
 
 class User extends Model {
     static validatePass(user_entered_pass, hashed_password) {
