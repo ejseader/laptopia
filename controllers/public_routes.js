@@ -1,7 +1,10 @@
 const router = require('express').Router();
+const Laptop = require('../models/index')
 
 router.get('/', (req, res) => {
-  res.render('index');
+  // get all the laptop data
+  const allLaptop = Laptop.findAll()
+  res.render('index', {data: allLaptop});
 });
 
 router.get('/login', (req, res) => {

@@ -27,6 +27,7 @@ app.use(session({
 
 app.use('/', [public_routes, auth_routes, private_routes]);
 
-db.sync().then(() => {
+db.sync({ force: false }).then(() => {
+
   app.listen(PORT, () => console.log('Server started on port %s', PORT))
 });
