@@ -1,0 +1,16 @@
+{{#each data}}
+<div class="card" style="width: 18rem;">
+    <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}>
+    <div class="card-body">
+        <h5 class="card-title">{{heading}}</h5>
+        <p class="card-text">
+            Price: ${{price}}<br />
+            Brand: {{brand}}<br />
+            Model: {{model}}<br />
+            OS: {{oper_sys}}<br />
+            Condition: {{condition}}<br />
+            Description: {{description}}</p>
+        <a href="#" class="btn btn-primary">View Listing</a>
+    </div>
+</div>
+{{/each}}
