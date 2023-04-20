@@ -1,9 +1,10 @@
 const express = require('express');
 const PORT = process.env.PORT || 3000;
-const public_routes = require('./controllers/public_routes');
-const auth_routes = require('./controllers/auth_routes')
-const private_routes = require('./controllers/private_routes');
-const db = require('./config/connection');
+// const public_routes = require('./controllers/public_routes');
+// const auth_routes = require('./controllers/auth_routes')
+// const private_routes = require('./controllers/private_routes');
+// const db = require('./config/connection');
+const routes = require('./routes');
 const { engine } = require('express-handlebars');
 
 const app = express();
@@ -25,7 +26,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use('/', [public_routes, auth_routes, private_routes]);
+app.use(routes);
 
 db.sync().then(() => {
   app.listen(PORT, () => console.log('Server started on port %s', PORT))
