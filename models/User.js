@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize')
-const db = require('../db/connection')
+const db = require('../config/connection')
 const bcrypt = require('bcrypt')
 
 const Laptop = require('./Laptop');
