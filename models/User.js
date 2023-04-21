@@ -1,12 +1,16 @@
-const { Model, DataTypes } = require('sequelize')
-const db = require('../config/connection')
-const bcrypt = require('bcrypt')
+const { Model, DataTypes } = require('sequelize');
+const db = require('../db/connection');
+const bcrypt = require('bcrypt');
 const Laptop = require('./Laptop');
+
 class User extends Model {
-    static validatePass(user_entered_pass, hashed_password) {
-        return bcrypt.compareSync(user_entered_pass, hashed_password)
+    async checkPassword(provided_password) {
+        const is_valid = await bcrypt.compare(provided_password, this.password);
+
+        return is_valid;
     }
 }
+
 User.init({
     name: {
       type: DataTypes.STRING,
@@ -37,9 +41,14 @@ User.init({
     modelName: 'user',
     hooks: {
         async beforeCreate(user) {
-            const encrypted = await bcrypt.hash(user.password, 10);
-            user.password = encrypted;
+            const encrypted_pass = await bcrypt.hash(user.password, 10);
+
+            user.password = encrypted_pass;
         }
     }
 });
+
+User.hasMany(Laptop);
+Laptop.belongsTo(User);
+
 module.exports = User

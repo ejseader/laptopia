@@ -25,6 +25,9 @@ Laptop.init({
     description: {
         type: DataTypes.STRING,
     },
+    filepath: {
+        type: DataTypes.STRING
+    }
 }, {
     sequelize: db,
     timestamps: false,

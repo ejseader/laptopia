@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="form-box">
     <h2>NEW LISTING</h2>
-    <form action="/newlisting" method="post">
+    <form action="/newlisting" method="post" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="heading" class="form-label">Title</label>
         <input
@@ -86,8 +86,16 @@
           required
         ></textarea>
       </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input
+          name="image"
+          class="form-control"
+          type="file"
+          required
+        ></textarea>
+      </div>
       <div class="d-grid gap-2">
-        <button class="btn btn-primary" id="uploadBtn">Upload Photo</button>
         <button
           type="submit"
           class="btn btn-warning"
