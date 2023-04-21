@@ -2,13 +2,15 @@
   <div class="form-box">
     <h2>REGISTER</h2>
 
-    <form action="/auth/register" method="POST">
+    <form class="signup-form">
     {{#each auth_errors}}
       <p class="auth-error">{{this}}</p>
     {{/each}}
       <div class="mb-3">
-        <label for="form-control" class="form-label">Name</label>
+        <label for="name" class="form-label">Name</label>
         <input
+          name="name"
+          id="name"
           class="form-control"
           type="text"
           placeholder="Enter Preferred Username"
@@ -41,8 +43,10 @@
         </div>
       </div>
       <div class="d-grid">
-        <button class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
       </div>
     </form>
   </div>
 </div>
+
+<script src="../../public/js/login.js"></script>
