@@ -1,16 +1,17 @@
 const { Model, DataTypes } = require('sequelize')
 const db = require('../config/connection')
 const bcrypt = require('bcrypt')
-
 const Laptop = require('./Laptop');
-
 class User extends Model {
     static validatePass(user_entered_pass, hashed_password) {
         return bcrypt.compareSync(user_entered_pass, hashed_password)
     }
 }
-
 User.init({
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     email: {
         type: DataTypes.STRING,
         validate: {
@@ -41,5 +42,4 @@ User.init({
         }
     }
 });
-
 module.exports = User

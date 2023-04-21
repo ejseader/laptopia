@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="form-box">
     <h2>LOGIN</h2>
-    <form action="/auth/login" method="POST">
+    <form action="/login" method="POST">
     {{#each auth_errors}}
       <p class="auth-error">{{this}}</p>
     {{/each}}
@@ -31,3 +31,5 @@
     </form>
   </div>
 </div>
+
+<script src="../../public/js/login.js"></script>

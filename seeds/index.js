@@ -1,6 +1,5 @@
 const seedLaptop = require('./seed')
 const db = require('../config/connection')
-
 const seedAll = async () => {
     await db.sync({ force: true });
     await seedLaptop();
