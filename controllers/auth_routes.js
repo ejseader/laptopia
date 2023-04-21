@@ -1,47 +1,80 @@
 const router = require('express').Router();
 const User = require('../models/User');
 
-router.post('/auth/login', async (req, res) => {
-  const user_data = req.body;
+router.post('/login', async (req, res) => {
+  try {
+    const dbUserData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
 
-  const user = await User.findOne({
-    where: {
-      email: user_data.email
+    if (!dbUserData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
     }
-  });
 
-  if (!user) {
-    req.session.auth_errors = ['No account found with that email address. Please register.']
-    return res.redirect('/register');
+    const validPassword = await dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      console.log(
+        '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
+        req.session.cookie
+      );
+
+      res
+        .status(200)
+        .json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
-
-  const valid_pass = await user.validatePass(user_data.password);
-
-  if (!valid_pass) {
-    req.session.auth_errors = ['Your password is incorrect']
-    return res.redirect('/login');
-  }
-
-  req.session.user_id = user.id;
-
-  res.redirect('/dashboard');
 });
 
-router.post('/auth/register', async (req, res) => {
-  const user_data = req.body;
-  req.session.auth_errors = ['Invalid registration'];
+// router.post('/auth/register', async (req, res) => {
+//   const user_data = req.body;
+//   req.session.auth_errors = ['Invalid registration'];
 
-  delete req.session.auth_errors;
+//   delete req.session.auth_errors;
 
+//   try {
+//     const user = await User.create(user_data);
+
+//     req.session.user_id = user.id;
+//     delete req.session.auth_errors;
+//     res.redirect('/dashboard');
+//   } catch (err) {
+//     res.redirect('/register');
+//   }
+// });
+
+router.post('/', async (req, res) => {
   try {
-    const user = await User.create(user_data);
+    const dbUserData = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    });
 
-    req.session.user_id = user.id;
-    delete req.session.auth_errors;
-    res.redirect('/dashboard');
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.status(200).json(dbUserData);
+      res.redirect('/dashboard');
+    });
   } catch (err) {
-    const errors = err.errors.map(errObj => errObj.message);
-    req.session.auth_errors = errors;
+    console.log(err);
+    res.status(500).json(err);
     res.redirect('/register');
   }
 });

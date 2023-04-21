@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize')
+const { Model, DataTypes, DatabaseError } = require('sequelize')
 const db = require('../db/connection')
 const bcrypt = require('bcrypt')
 
@@ -11,6 +11,10 @@ class User extends Model {
 }
 
 User.init({
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     email: {
         type: DataTypes.STRING,
         validate: {

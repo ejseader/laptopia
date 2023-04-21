@@ -1,7 +1,9 @@
 node_modules
 .env
-<<<<<<< HEAD
-=======
+/controllers/*
+/models/*
+/routes/*
+/public/js/*
+/seeds/*
 
 
->>>>>>> 4bca7a73f410e9e3d18c0c56b8a7e4f0e317263d
