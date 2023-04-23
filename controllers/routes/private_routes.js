@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
       oper_sys: req.body.oper_sys,
       condition: req.body.condition,
       description: req.body.description,
-      filepath: req.body.filepath
+      filepath: req.body.filepath,
     })
     cb(null, filePath);
   }
@@ -42,9 +42,7 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
     include: Laptop
   });
 
-  res.render('private/dashboard', {
-    posts: user.posts
-  })
+  res.render('private/dashboard');
 });
 
 router.get('/newlisting', isAuthenticated, async (req, res) => {
@@ -60,10 +58,21 @@ router.post('/newlisting', isAuthenticated, async (req, res) => {
     if (err) return console.log(err);
   })
 
-  res.render('private/newlisting', {
+  res.render('private/dashboard', {
     name: user.name,
     email: user.email
   })
+});
+
+router.get('/userlistings', isAuthenticated, async (req, res) => {
+  const user = await User.findOne({
+    where: {
+      id: req.session.user_id
+    },
+    include: Laptop,
+  });
+
+  res.render('private/userlistings');
 });
 
 module.exports = router;

@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="listings">
+    <div class="row">
+        {{#each Laptops as |laptop|}}
+          <div class="card" style="width: 18rem;">
+            <img src="{{laptop.filepath}}" class="card-img-top" alt={{laptop.heading}}>
+            <div class="card-body">
+              <h5 class="card-title">{{laptop.heading}} - {{laptop.price}}</h5>
+              <p class="card-text">Brand: {{brand}}<br />
+                Model: {{laptop.model}}<br />
+                OS: {{laptop.oper_sys}}<br />
+                Condition: {{laptop.condition}}<br />
+                Price: ${{laptop.price}}<br />
+                Description: {{laptop.description}}</p>
+              <div class="d-grid">  
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingModal">View Listing</a>
+              </div>
+            </div>
+        {{/each}}
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+    <div class="modal fade modal-xl" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="listingModalLabel">{{laptop.heading}} - ${{laptop.price}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-4 d-grid gap-2">
+                  <img src="{{laptop.filepath}}" class="card-img-top" alt={{laptop.heading}}>
+                  <button class="btn btn-success" href="#">Buy Now</button>
+                  <button class="btn btn-primary" href="#">Contact Seller</button>
+                </div>
+                <div class="col-8">
+                  Brand: {{laptop.brand}}<br />
+                  Model: {{laptop.model}}<br />
+                  OS: {{laptop.oper_sys}}<br />
+                  Condition: {{laptop.condition}}<br />
+                  Price: ${{laptop.price}}<br />
+                  Description: {{laptop.description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
