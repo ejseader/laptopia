@@ -6,7 +6,7 @@ const routes = require('./controllers');
 const public_routes = require('./controllers/public_routes');
 const auth_routes = require('./controllers/routes/auth_routes')
 const private_routes = require('./controllers/routes/private_routes');
-const db = require('./db/connection');
+const db = require('./config/connection');
 const { engine } = require('express-handlebars');
 
 const app = express();
@@ -25,11 +25,11 @@ app.set('views', './views');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false
-}));
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: false
+// }));
 
 app.use([public_routes,auth_routes,private_routes]);
 

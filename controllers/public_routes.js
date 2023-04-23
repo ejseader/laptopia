@@ -10,9 +10,9 @@ function isAuthenticated(req, res, next) {
 }
 
 // GET all posts for homepage
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // get all the laptop data
-  const allLaptop = Laptop.findAll()
+  const allLaptop = await Laptop.findAll()
   res.render('index', {data: allLaptop});
 });
 
