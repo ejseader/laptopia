@@ -6,7 +6,7 @@ const routes = require('./controllers');
 const public_routes = require('./controllers/public_routes');
 const auth_routes = require('./controllers/routes/auth_routes')
 const private_routes = require('./controllers/routes/private_routes');
-const db = require('./db/connection');
+const db = require('./config/connection');
 const { engine } = require('express-handlebars');
 
 const app = express();
