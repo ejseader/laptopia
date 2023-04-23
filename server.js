@@ -2,11 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const PORT = process.env.PORT || 3000;
 const session = require('express-session');
-const routes = require('./routes');
+const routes = require('./controllers');
 const public_routes = require('./controllers/public_routes');
-const auth_routes = require('./controllers/auth_routes')
-const private_routes = require('./controllers/private_routes');
-const db = require('./config/connection');
+const auth_routes = require('./controllers/routes/auth_routes')
+const private_routes = require('./controllers/routes/private_routes');
+const db = require('./db/connection');
 const { engine } = require('express-handlebars');
 
 const app = express();

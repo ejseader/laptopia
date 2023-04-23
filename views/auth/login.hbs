@@ -1,10 +1,7 @@
 <div class="container-fluid">
   <div class="form-box">
     <h2>LOGIN</h2>
-    <form action="/login" method="POST">
-    {{#each auth_errors}}
-      <p class="auth-error">{{this}}</p>
-    {{/each}}
+    <form class="login-form">
       <div class="mb-3">
         <label class="form-label">Email address</label>
         <input
