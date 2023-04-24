@@ -20,6 +20,8 @@ router.post('/register', isLoggedIn, async (req, res) => {
 
     req.session.userId = userData.id;
 
+    return res.redirect('/dashboard');
+
     res.redirect('/dashboard');
   } catch (err) {
     console.log(err);

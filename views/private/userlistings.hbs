@@ -23,6 +23,7 @@
 </div>
 
 <!-- Modal -->
+    {{#each Laptops as |laptop|}}
     <div class="modal fade modal-xl" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content modal-dialog-centered modal-dialog-scrollable">
@@ -55,5 +56,6 @@
         </div>
       </div>
     </div>
+    {{/each}}
   </div>
 </div>
