@@ -70,7 +70,7 @@ Laptopia is an online marketplace where buyers and sellers can sell their new/us
 
 ## Deployed App #
 
-[https://pacific-cliffs-22860.herokuapp.com/](Laptopia: An Online Marketplace for Laptops)
+[Laptopia: An Online Marketplace for Laptops](https://pacific-cliffs-22860.herokuapp.com/)
 
 ---
 
@@ -81,7 +81,7 @@ Laptopia is an online marketplace where buyers and sellers can sell their new/us
 <li>NodeJS</li>
 <li>MySQL</li>
 <li>NPM Packages</li>
-  <ol>
+  <ul>
   <li>bcrypt</li>
   <li>connect-session-sequelize</li>
   <li>dotenv</li>
@@ -92,7 +92,7 @@ Laptopia is an online marketplace where buyers and sellers can sell their new/us
   <li>mysql2</li>
   <li>nodemon</li>
   <li>sequelize</li>
-  </ol>
+  </ul>
 <li>Seed</li>
 <li>API Routes</li>
 <li>Server.js</li>
