@@ -1,11 +1,11 @@
 # Laptopia: An Online Marketplace for Laptops
 
-## USER STORY #
+## User Story #
  As an e-commerce company, I want to build a marketplace app that allows registered users to sell their laptops.
 
 ---
 
-## CRITERIA #
+## Criteria #
 
 WHEN I open the website
 
@@ -46,7 +46,7 @@ Laptopia is an online marketplace where buyers and sellers can sell their new/us
 
 ---
 
-## USAGE INSTRUCTIONS #
+## Usage Instructions #
 
 1. Register as a new user.
 
@@ -62,43 +62,56 @@ Laptopia is an online marketplace where buyers and sellers can sell their new/us
 
 ---
 
-## REPO LINK #
+## Repo Link #
 
 [https://github.com/ejseader/laptopia](https://github.com/ejseader/laptopia)
 
 ---
 
+## Deployed App #
+
+[https://pacific-cliffs-22860.herokuapp.com/](Laptopia: An Online Marketplace for Laptops)
+
+---
+
+
 ## Installation Process #
 
-1. Inquirer JS
-2. MySQL
-3. MIT LICENSE
-4. Seed
-5. API routes
-6. Express
-7. .dotenv
-8. nodemon
-9. Server JS
-10. Multer
+<ol>
+<li>NodeJS</li>
+<li>MySQL</li>
+<li>NPM Packages</li>
+  <ol>
+  <li>bcrypt</li>
+  <li>connect-session-sequelize</li>
+  <li>dotenv</li>
+  <li>express</li>
+  <li>express-handlebars</li>
+  <li>express-session</li>
+  <li>multer</li>
+  <li>mysql2</li>
+  <li>nodemon</li>
+  <li>sequelize</li>
+  </ol>
+<li>Seed</li>
+<li>API Routes</li>
+<li>Server.js</li>
+</ol>
 
 ---
 
 ## What we learned 
 
-1. Bootstrap is very efficient when it comes to CSS.
-
-2. Sharing a GitHub repo with several people can prove to be quite difficult when there is crossover of coding duties
-
-3. 
-
-4. 
-
-5. 
+<ol>
+  <li>Bootstrap is very efficient when it comes to CSS.</li>
+  <li>Sharing a GitHub repo with several people can prove to be quite difficult when there is crossover of coding duties.</li>
+  <li>We got more comfortable with the Express.js backend, defined routes, handled requests, and modularization.</li>
+</ol>
 
 ---
 
 ## License #
-MIT
+[MIT License](https://mit-license.org/)
 
 ---
 
