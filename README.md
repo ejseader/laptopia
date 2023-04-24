@@ -106,6 +106,7 @@ Laptopia is an online marketplace where buyers and sellers can sell their new/us
   <li>Bootstrap is very efficient when it comes to CSS.</li>
   <li>Sharing a GitHub repo with several people can prove to be quite difficult when there is crossover of coding duties.</li>
   <li>We got more comfortable with the Express.js backend, defined routes, handled requests, and modularization.</li>
+  <li>How to truly harness the power of the MVC foldering method</li>
 </ol>
 
 ---
