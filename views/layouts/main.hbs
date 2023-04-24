@@ -18,10 +18,10 @@
         {{#if loggedIn}}
         <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i></button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Create New Listing</a></li>
-          <li><a class="dropdown-item" href="#">View/Edit Your Listings</a></li>
-          <li><a class="dropdown-item" href="#">View All Listings</a></li>
-          <li><a class="dropdown-item" href="#">Logout</a></li>
+          <li><a class="dropdown-item" href="/newlisting">Create New Listing</a></li>
+          <li><a class="dropdown-item" href="/userlistings">View/Edit Your Listings</a></li>
+          <li><a class="dropdown-item" href="/">View All Listings</a></li>
+          <li><a class="dropdown-item" href="/logout">Logout</a></li>
         </ul>
         {{else}}
         <a href="/login">Login</a>

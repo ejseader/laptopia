@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const db = require('../config/connection')
+const db = require('../config/connection');
 
 class Laptop extends Model { }
 
@@ -26,7 +26,7 @@ Laptop.init({
         type: DataTypes.STRING,
     },
     filepath: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
     }
 }, {
     sequelize: db,
