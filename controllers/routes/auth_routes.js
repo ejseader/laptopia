@@ -1,22 +1,26 @@
 const router = require('express').Router();
 const User = require('../../models/User');
 
+function isLoggedIn(req, res, next) {
+  if (req.session.user_id) return res.redirect('/dashboard');
+
+  next();
+}
+
 // CREATE new user
-router.post('/register', async (req, res) => {
-  const user = req.body;
+router.post('/register', isLoggedIn, async (req, res) => {
+  const formData = req.body;
 
   try {
     const userData = await User.create({
-      name: user.name,
-      email: user.email,
-      password: user.password,
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
     });
 
     req.session.userId = userData.id;
-    console.log(req.session.userId);
 
-    return res.redirect('/dashboard');
-
+    res.redirect('/dashboard');
   } catch (err) {
     console.log(err);
     res.redirect('/register');
@@ -24,34 +28,33 @@ router.post('/register', async (req, res) => {
 });
 
 // Login
-router.post('/login', async (req, res) => {
-  const user = req.body;
-  console.log(user);
+router.post('/login', isLoggedIn, async (req, res) => {
+  const formData = req.body;
 
   try {
-    const userData = await User.findOne({
+    const user = await User.findOne({
       where: {
-        email: user.email,
+        email: formData.email,
       },
     });
-    console.log(userData);
-    if (!userData) {
-      return res.redirect('/register')
+
+    if (!user) {
+      return res.redirect('/register');
     }
 
-    const validPassword = await userData.checkPassword(user.password);
+    const validPassword = await user.checkPassword(formData.password);
 
     if (!validPassword) {
       return res.redirect('/login')
     }
 
-    req.session.userId = userData.id;
+    req.session.userId = user.id;
 
-    res.redirect('private/dashboard');
-    } catch (err) {
-      console.log(err);
-      res.redirect('/login');
-    }
+    res.redirect('/dashboard');
+  } catch (err) {
+    console.log(err);
+    res.redirect('/login');
+  }
 });
 
 // Logout
@@ -61,7 +64,7 @@ router.post('/logout', (req, res) => {
       res.redirect('/');
     });
   } else {
-      res.redirect('/dashboard');
+    res.redirect('/dashboard');
   }
 });
 

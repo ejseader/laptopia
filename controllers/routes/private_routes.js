@@ -1,30 +1,6 @@
 const router = require('express').Router();
-const path = require('path');
 const { User, Laptop } = require('../../models');
-const multer = require('multer');
-
-const storage = multer.diskStorage({
-  destination: './public/images',
-  filename: function(req, file, cb) {
-    const filePath = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
-    req.user.createLaptop({
-      heading: req.body.heading,
-      price: req.body.price,
-      brand: req.body.brand,
-      model: req.body.model,
-      oper_sys: req.body.oper_sys,
-      condition: req.body.condition,
-      description: req.body.description,
-      filePath: req.body.filepath,
-    })
-    cb(null, filePath);
-  }
-});
-
-const upload = multer({
-  storage: storage
-}).single('image');
-
+const upload = require('../helpers/upload');
 
 function isAuthenticated(req, res, next) {
   if (!req.session.userId) {
@@ -34,34 +10,42 @@ function isAuthenticated(req, res, next) {
   next();
 }
 
+// GET user's posts for dashboard
 router.get('/dashboard', isAuthenticated, async (req, res) => {
   const user = await User.findOne({
     where: {
       id: req.session.userId
     },
-    include: Laptop
+    include: Laptop,
+    attributes: {
+      exclude: ['password']
+    }
   });
-  console.log(req.session.userId);
-  res.render('private/dashboard');
+
+  res.render('private/dashboard', {
+    user,
+    loggedIn: true,
+    isDashboard: true
+  });
 });
 
 router.get('/newlisting', isAuthenticated, async (req, res) => {
-  res.render('private/newlisting');
+
+  res.render('private/newlisting', {
+    loggedIn: true
+  });
 });
 
 router.post('/newlisting', isAuthenticated, async (req, res) => {
   const user = await User.findByPk(req.session.userId);
-  console.log(req.session.userId);
+
   req.user = user;
 
   upload(req, res, (err) => {
     if (err) return console.log(err);
-  })
 
-  res.render('private/dashboard', {
-    name: user.name,
-    email: user.email
-  })
+    res.redirect('/dashboard');
+  });
 });
 
 router.get('/userlistings', isAuthenticated, async (req, res) => {
@@ -70,9 +54,15 @@ router.get('/userlistings', isAuthenticated, async (req, res) => {
       id: req.session.userId
     },
     include: Laptop,
+    attributes: {
+      exclude: ['password']
+    }
   });
 
-  res.render('private/userlistings');
+  res.render('private/userlistings', {
+    Laptops: user.laptops,
+    loggedIn: true
+  });
 });
 
 module.exports = router;

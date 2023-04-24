@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="form-box">
     <h2>LOGIN</h2>
-    <form class="login-form">
+    <form action="/auth/login" method="POST" class="login-form">
       <div class="mb-3">
         <label class="form-label">Email address</label>
         <input
@@ -29,4 +29,8 @@
   </div>
 </div>
 
-<script src="../../public/js/login.js"></script>
+<!-- To clarify, this is not a file route. You would start the path with / which represents localhost:3000/ or root. -->
+<!-- Everything inside of public is loaded at the server root "/", so to load your js files, you simply need -->
+<!-- "/js" in front of the file name -->
+<!-- I took this file out of the mix since we have the form action and method to handle submission -->
+<!-- <script src="/js/login.js"></script> -->
