@@ -89,11 +89,10 @@ Laptopia is an online marketplace where buyers and sellers can sell their new/us
 
 2. Sharing a GitHub repo with several people can prove to be quite difficult when there is crossover of coding duties
 
-3. 
+3. To use Express.js backend, define routes, and handle requests. Modularization is more easy to use.
 
-4. 
+4. To use the MVC model properly.
 
-5. 
 
 ---
 
