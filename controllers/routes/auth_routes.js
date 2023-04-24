@@ -12,9 +12,10 @@ router.post('/register', async (req, res) => {
       password: user.password,
     });
 
-    req.session.user_id = userData.id;
+    req.session.userId = userData.id;
+    console.log(req.session.userId);
 
-    res.redirect('/dashboard');
+    return res.redirect('/dashboard');
 
   } catch (err) {
     console.log(err);
@@ -44,7 +45,7 @@ router.post('/login', async (req, res) => {
       return res.redirect('/login')
     }
 
-    req.session.user_id = userData.id;
+    req.session.userId = userData.id;
 
     res.redirect('private/dashboard');
     } catch (err) {

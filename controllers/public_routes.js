@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Laptop } = require('../models/index')
 
 function isAuthenticated(req, res, next) {
-  if (!req.session.user_id) {
+  if (!req.session.userId) {
     return res.redirect('/login');
   }
 
@@ -18,8 +18,7 @@ router.get('/', async (req, res) => {
 
 // Login route
 router.get('/login', (req, res) => {
-  console.log(req.session.user_id);
-  if (req.session.user_id) {
+  if (req.session.userId) {
     res.redirect('/dashboard');
     return;
   }
@@ -28,7 +27,7 @@ router.get('/login', (req, res) => {
 
 // Register route
 router.get('/register', (req, res) => {
-  if (req.session.user_id) {
+  if (req.session.userId) {
     res.redirect('/dashboard');
     return;
   }
@@ -39,7 +38,7 @@ router.get('/register', (req, res) => {
 router.get('/dashboard', isAuthenticated, async (req, res) => {
   const user = await User.findOne({
       where: {
-        id: req.session.user_id
+        id: req.session.userId
       },
       include: Laptop,
       attributes: {

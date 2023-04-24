@@ -8,7 +8,8 @@ const laptopData =
         model: 'M15 R7',
         oper_sys: 'Windows 11',
         condition: 'Very Good',
-        description: 'Alienware M15 R7 with a 12th Gen Intel Core i7...'
+        description: 'Alienware M15 R7 with a 12th Gen Intel Core i7...',
+        imagePath: 'images/Alienware M15 R7.PNG'
       },
       {
         heading: 'Dell Latitude 3520',
@@ -17,7 +18,8 @@ const laptopData =
         model: 'Latitude',
         oper_sys: 'Windows 10 Pro',
         condition: 'Good',
-        description: 'Dell Latitude 3520 with an 11th Gen Intel Core i5'
+        description: 'Dell Latitude 3520 with an 11th Gen Intel Core i5',
+        imagePath: 'images/Dell Latitude 3520.PNG'
       },
       {
         heading: 'MacBook Air',
@@ -26,7 +28,8 @@ const laptopData =
         model: '2022 M1',
         oper_sys: 'macOS 12 (Monterey)',
         condition: 'Very Good',
-        description: 'Virtually new 2022 MacBook Air with an M1 chip, 256GB SSD...'
+        description: 'Virtually new 2022 MacBook Air with an M1 chip, 256GB SSD...',
+        imagePath: 'images/MacBook Air.PNG'
       },
       {
         heading: 'MacBook - Parts Only',
@@ -44,7 +47,8 @@ const laptopData =
         model: 'TUF Dash F15 2022 15.6"',
         oper_sys: 'Windows 11 Home',
         condition: 'Excellent',
-        description: 'Virtually new ASUS TUF Dash F15 with a 12th Gen Intel i7 core...'
+        description: 'Virtually new ASUS TUF Dash F15 with a 12th Gen Intel i7 core...',
+        imagePath: 'images/ASUS TUF.PNG'
       },
       {
         heading: 'Lenovo IdeaPad 3i',
@@ -53,7 +57,8 @@ const laptopData =
         model: 'IdeaPad Gaming 3i',
         oper_sys: 'Windows 11 Home',
         condition: 'Good',
-        description: 'Lenovo IdeaPad Gaming 3i with a 12th Gen Intel i7 core, 512GB SSD...'
+        description: 'Lenovo IdeaPad Gaming 3i with a 12th Gen Intel i7 core, 512GB SSD...',
+        imagePath: 'images/Lenovo IdeaPad.PNG'
     }]
 
 const seedLaptop = () => Laptop.bulkCreate(laptopData) 

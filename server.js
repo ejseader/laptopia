@@ -12,6 +12,7 @@ const { engine } = require('express-handlebars');
 const app = express();
 
 app.use(express.static('public'));
+app.use(express.static('views/images'));
 
 app.engine('hbs', engine({
   extname: '.hbs',
@@ -25,11 +26,16 @@ app.set('views', './views');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// app.use(session({
-//   secret: process.env.SESSION_SECRET,
-//   resave: false,
-//   saveUninitialized: false
-// }));
+app.use(session({
+  cookie: {
+    path: '/',
+    httpOnly: false,
+    maxAge: 28*60*60*1000
+  },
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use([public_routes,auth_routes,private_routes]);
 

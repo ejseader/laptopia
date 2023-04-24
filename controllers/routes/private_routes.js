@@ -27,7 +27,7 @@ const upload = multer({
 
 
 function isAuthenticated(req, res, next) {
-  if (!req.session.user_id) {
+  if (!req.session.userId) {
     return res.redirect('/login');
   }
 
@@ -37,11 +37,11 @@ function isAuthenticated(req, res, next) {
 router.get('/dashboard', isAuthenticated, async (req, res) => {
   const user = await User.findOne({
     where: {
-      id: req.session.user_id
+      id: req.session.userId
     },
     include: Laptop
   });
-
+  console.log(req.session.userId);
   res.render('private/dashboard');
 });
 
@@ -50,8 +50,8 @@ router.get('/newlisting', isAuthenticated, async (req, res) => {
 });
 
 router.post('/newlisting', isAuthenticated, async (req, res) => {
-  const user = await User.findByPk(req.session.user_id);
-
+  const user = await User.findByPk(req.session.userId);
+  console.log(req.session.userId);
   req.user = user;
 
   upload(req, res, (err) => {
@@ -67,7 +67,7 @@ router.post('/newlisting', isAuthenticated, async (req, res) => {
 router.get('/userlistings', isAuthenticated, async (req, res) => {
   const user = await User.findOne({
     where: {
-      id: req.session.user_id
+      id: req.session.userId
     },
     include: Laptop,
   });

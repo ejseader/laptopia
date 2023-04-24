@@ -1,6 +1,5 @@
 <div class="container-fluid">
   <div class="listings">
-    <div class="filters">
       <div class="filters">
         <select class="form-select" aria-label="Brand Filter">
           <option selected>Brand</option>
@@ -34,14 +33,14 @@
           <option value="Parts Only">Parts Only</option>
         </select>
     </div>
-      <div class="row">
+      <div class="row gap-2">
         {{#each data as |data|}}
           <div class="card" style="width: 18rem;">
-            <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}>
-            <div class="card-image" style="background-image: url(images/{{image_file}})"></div>
+            {{!-- <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}> --}}
+            <div class="card-image" style="background-image: url('/public/images/Alienware M15 R7.PNG');max-height:max-content;"></div>
             <div class="card-body">
-              <h5 class="card-title">{{heading}} - ${{price}}</h5>
-              <p class="card-text">Brand: {{brand}}<br />
+              <h5 class="card-title">{{data.heading}} - ${{data.price}}</h5>
+              <p class="card-text">Brand: {{data.brand}}<br />
                 Model: {{data.model}}<br />
                 OS: {{data.oper_sys}}<br />
                 Condition: {{data.condition}}<br />
@@ -51,9 +50,9 @@
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingModal">View Listing</a>
               </div>
             </div>
+            </div>
         {{/each}}
       </div>
-    </div>
 
     <!-- Modal -->
     <div class="modal fade modal-xl" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
@@ -88,5 +87,6 @@
         </div>
       </div>
     </div>
+    <script src="public/js/modal.js"></script>
   </div>
 </div>
