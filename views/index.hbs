@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="listings">
-      <div class="filters">
+      {{!-- <div class="filters">
         <select class="form-select" aria-label="Brand Filter">
           <option selected>Brand</option>
           <option value="Acer">Acer</option>
@@ -32,12 +32,12 @@
           <option value="Poor">Poor</option>
           <option value="Parts Only">Parts Only</option>
         </select>
-    </div>
+    </div> --}}
       <div class="row gap-2">
         {{#each data as |data|}}
           <div class="card" style="width: 18rem;">
             {{!-- <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}> --}}
-            <div class="card-image" style="background-image: url('/public/images/Alienware M15 R7.PNG');max-height:max-content;"></div>
+            <div class="card-image" style="background-image: url('images/Alienware M15 R7.PNG');max-height:max-content;"><img src="images/Alienware M15 R7.PNG"></div>
             <div class="card-body">
               <h5 class="card-title">{{data.heading}} - ${{data.price}}</h5>
               <p class="card-text">Brand: {{data.brand}}<br />
@@ -55,6 +55,7 @@
       </div>
 
     <!-- Modal -->
+    {{#each data as |data|}}
     <div class="modal fade modal-xl" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content modal-dialog-centered modal-dialog-scrollable">
@@ -66,7 +67,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-4 d-grid gap-2">
-                  <img src="{{data.filepath}}" class="card-img-top" alt={{data.heading}}>
+                  <img src="images/Alienware M15 R7.PNG" class="card-img-top" alt={{data.heading}}>
                   <button class="btn btn-success" href="#">Buy Now</button>
                   <button class="btn btn-primary" href="#">Contact Seller</button>
                 </div>
@@ -87,6 +88,7 @@
         </div>
       </div>
     </div>
+    {{/each}}
     <script src="public/js/modal.js"></script>
   </div>
 </div>

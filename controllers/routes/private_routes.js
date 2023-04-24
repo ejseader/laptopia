@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
       oper_sys: req.body.oper_sys,
       condition: req.body.condition,
       description: req.body.description,
-      filepath: req.body.filepath,
+      filePath: req.body.filepath,
     })
     cb(null, filePath);
   }
