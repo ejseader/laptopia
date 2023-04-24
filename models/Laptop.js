@@ -1,9 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-<<<<<<< HEAD
-const db = require('../db/connection');
-=======
-const db = require('../config/connection')
->>>>>>> 0d3f2dfdc607de09828482e6d3e28a30680d5a83
+const db = require('../config/connection');
 
 class Laptop extends Model { }
 
