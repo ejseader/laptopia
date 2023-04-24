@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="listings">
-    <div class="row">
+    <div class="row gap-2">
         {{#each Laptops as |laptop|}}
           <div class="card" style="width: 18rem;">
             <img src="{{laptop.filepath}}" class="card-img-top" alt={{laptop.heading}}>
@@ -13,11 +13,12 @@
                 Price: ${{laptop.price}}<br />
                 Description: {{laptop.description}}</p>
               <div class="d-grid">  
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingModal">View Listing</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingModal">View Listing</button>
               </div>
             </div>
+          </div>
         {{/each}}
-      </div>
+    </div>
   </div>
 </div>
 

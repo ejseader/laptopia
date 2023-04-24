@@ -1,3 +1,3 @@
-const listingModal = document.getElementById('listingModal');
+// const listingModal = document.getElementById('.listingModal');
 
-listingModal.addEventListener('shown.bs.modal');
+// listingModal.addEventListener('shown.bs.modal');

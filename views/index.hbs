@@ -36,8 +36,7 @@
       <div class="row gap-2">
         {{#each data as |data|}}
           <div class="card" style="width: 18rem;">
-            {{!-- <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}> --}}
-            <div class="card-image" style="background-image: url('{{data.imagePath}}');max-height:250px;"></div>
+            <div class="card-image" style="background-image: url({{data.filepath}})"></div>
             <div class="card-body">
               <h5 class="card-title">{{data.heading}} - ${{data.price}}</h5>
               <p class="card-text">Brand: {{data.brand}}<br />
@@ -47,7 +46,7 @@
                 Price: ${{data.price}}<br />
                 Description: {{data.description}}</p>
               <div class="d-grid">  
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingModal">View Listing</a>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".listingModal">View Listing</a>
               </div>
             </div>
             </div>
@@ -56,7 +55,7 @@
 
     <!-- Modal -->
     {{#each data as |data|}}
-    <div class="modal fade modal-xl" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
+    <div class="modal fade modal-xl" class="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-header">
@@ -89,6 +88,7 @@
       </div>
     </div>
     {{/each}}
-    <script src="public/js/modal.js"></script>
   </div>
 </div>
+
+<script src="/js/modal.js"></script>
