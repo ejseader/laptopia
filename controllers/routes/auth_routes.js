@@ -13,7 +13,6 @@ router.post('/register', async (req, res) => {
     });
 
     req.session.userId = userData.id;
-    console.log(req.session.userId);
 
     return res.redirect('/dashboard');
 

@@ -12,7 +12,7 @@ const { engine } = require('express-handlebars');
 const app = express();
 
 app.use(express.static('public'));
-app.use(express.static('views/images'));
+app.use(express.static('public/images'));
 
 app.engine('hbs', engine({
   extname: '.hbs',

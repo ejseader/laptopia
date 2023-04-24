@@ -1,9 +1,11 @@
-# USER STORY #
- As a retailer, I want to build a marketplace app that sells laptops.  
+# Laptopia: An Online Marketplace for Laptops
 
-#
+## USER STORY #
+ As an e-commerce company, I want to build a marketplace app that allows registered users to sell their laptops.
 
-# CRITERIA #
+---
+
+## CRITERIA #
 
 WHEN I open the website
 
@@ -29,20 +31,22 @@ WHEN I want to view all listings
 
 THEN I click “View All Listings” options and it takes me to the page of all users’ listings
 
+---
 
-# Description #
+## Description #
 
-Laptopia is an online marketplace where buyers and sellers can sell their new/used laptops at affordable prices; This is designed to make it super easy and convenient for you to sell your devices. With this interface, you can look through an extensive collection of laptops. Our site sells from reputable brands. 
+Laptopia is an online marketplace where buyers and sellers can sell their new/used laptops at affordable prices; This is designed to make it super easy and convenient for you to sell your devices. With this interface, you can look through an extensive collection of laptops. You will find only the most reputable brands on our site. 
 
+---
 
-# Installation
+## Installation
 
-VS code
-Github
+### - VS code
+### - Github
 
+---
 
-
-# USAGE INSTRUCTIONS #
+## USAGE INSTRUCTIONS #
 
 1. Register as a new user.
 
@@ -56,13 +60,15 @@ Github
 
 6. When the user clicks "View All Listings" the user is immediately sent the the dashboard where it will display all 2nd hand laptops from other buyers and/or sellers.
 
+---
 
-# REPO LINK#
+## REPO LINK #
 
--insert repo link here-
+[https://github.com/ejseader/laptopia](https://github.com/ejseader/laptopia)
 
+---
 
-# Installation Process #
+## Installation Process #
 
 1. Inquirer JS
 2. MySQL
@@ -73,22 +79,29 @@ Github
 7. .dotenv
 8. nodemon
 9. Server JS
+10. Multer
 
-# What we learned 
+---
+
+## What we learned 
 
 1. Bootstrap is very efficient when it comes to CSS.
 
-2. 
+2. Sharing a GitHub repo with several people can prove to be quite difficult when there is crossover of coding duties
 
-3.
+3. 
 
-4.
+4. 
 
 5. 
 
-# License #
+---
+
+## License #
 MIT
 
-# Authors #
+---
+
+## Authors #
 
 Eric Seader, Greg Pfeifer, Wajeeha Riyasat, Keziah Changuin
