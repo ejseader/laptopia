@@ -60,14 +60,10 @@ router.post('/login', isLoggedIn, async (req, res) => {
 });
 
 // Logout
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+router.get('/logout', (req, res) => {
     req.session.destroy(() => {
       res.redirect('/');
     });
-  } else {
-    res.redirect('/dashboard');
-  }
 });
 
 module.exports = router;
