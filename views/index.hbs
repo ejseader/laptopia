@@ -37,7 +37,7 @@
         {{#each data as |data|}}
           <div class="card" style="width: 18rem;">
             {{!-- <img src="https://dummyimage.com/250x200/555555/fff" class="card-img-top" alt={{heading}}> --}}
-            <div class="card-image" style="background-image: url('images/Alienware M15 R7.PNG');max-height:max-content;"><img src="images/Alienware M15 R7.PNG"></div>
+            <div class="card-image" style="background-image: url('{{data.imagePath}}');max-height:250px;"></div>
             <div class="card-body">
               <h5 class="card-title">{{data.heading}} - ${{data.price}}</h5>
               <p class="card-text">Brand: {{data.brand}}<br />
