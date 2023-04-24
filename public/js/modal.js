@@ -1,3 +1,6 @@
-// const listingModal = document.getElementById('.listingModal');
+const listingModal = document.querySelector('.listingModal');
 
-// listingModal.addEventListener('shown.bs.modal');
+listingModal.addEventListener('shown.bs.modal', () => {
+  console.log('clicked');
+  // listingModal.show();
+});

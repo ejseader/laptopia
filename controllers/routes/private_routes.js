@@ -49,7 +49,7 @@ router.post('/newlisting', isAuthenticated, async (req, res) => {
 });
 
 router.get('/userlistings', isAuthenticated, async (req, res) => {
-  const user = await Laptop.findAll({
+  const user = await User.findOne({
     where: {
       id: req.session.userId
     },
