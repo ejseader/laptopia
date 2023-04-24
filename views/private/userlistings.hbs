@@ -3,7 +3,7 @@
     <div class="row gap-2">
         {{#each Laptops as |laptop|}}
           <div class="card" style="width: 18rem;">
-            <img src="{{laptop.filepath}}" class="card-img-top" alt={{laptop.heading}}>
+            <div class="card-image" style="background-image: url({{laptop.filepath}})"></div>
             <div class="card-body">
               <h5 class="card-title">{{laptop.heading}} - {{laptop.price}}</h5>
               <p class="card-text">Brand: {{brand}}<br />
@@ -13,7 +13,7 @@
                 Price: ${{laptop.price}}<br />
                 Description: {{laptop.description}}</p>
               <div class="d-grid">  
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#listingModal">View Listing</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".listingModal{{laptop.id}}">View Listing</button>
               </div>
             </div>
           </div>
@@ -27,11 +27,11 @@
 
 <!-- Modal -->
     {{#each Laptops as |laptop|}}
-    <div class="modal fade modal-xl" id="listingModal" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
+    <div class="modal fade modal-xl listingModal-{{laptop.id}}" tabindex="-1" aria-labelledby="listingModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="listingModalLabel">{{laptop.heading}} - ${{laptop.price}}</h1>
+            <h1 class="modal-title fs-5" class="listingModalLabel">{{laptop.heading}} - ${{laptop.price}}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -62,3 +62,5 @@
     {{/each}}
   </div>
 </div>
+
+<script src="/js/modal.js"></script>
